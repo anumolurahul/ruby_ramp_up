@@ -51,6 +51,8 @@ puts File.atime(filec)
 puts File.ctime(filec)
 puts File.mtime(filec)
 
+Dir.chdir
+
 puts File.dirname(__FILE__)
 
 puts Dir.pwd
@@ -59,9 +61,10 @@ Dir.chdir(File.join( '', 'Users', 'rahulanumolu', 'myapp', 'bin'))
 puts 'after changing dir'
 puts Dir.pwd
 
+
 puts Dir.entries('.').inspect
 
-Dir.entries('.').each do |entry|
+Dir.entries('/Users/rahulanumolu/ruby_ramp_up/parse_stocks/stocks/').each do |entry|
     print "entry from #{entry.to_s}:\t\t\t\t" 
     if File.file?(entry) && File.readable?(entry) 
         File.open(entry, 'r') do |file|
